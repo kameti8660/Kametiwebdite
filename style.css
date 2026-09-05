@@ -1006,7 +1006,7 @@ main{
     }
 
     .ulalo img {
-        width: 90px;
+        width: 80px;
     }
     
     .luga{
@@ -1088,12 +1088,12 @@ main{
 
     .search-conteiner input[type="search"] {
         padding: 4px 8px;
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .search-conteiner button {
         padding: 5px 10px;
-        font-size: 12px;
+        font-size: 15px;
     }
 
     /* 3. Hero Section Padding & Sizes */
@@ -1123,7 +1123,7 @@ main{
     
     left: 50%;
     transform: translateX(-50%);
-    top: 355px;
+    top: 358px;
     z-index: 2;
     padding: 10px;
 
