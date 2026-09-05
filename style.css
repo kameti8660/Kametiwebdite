@@ -1006,7 +1006,7 @@ main{
     }
 
     .ulalo img {
-        width: 80px;
+        width: 70px;
     }
     
     .luga{
@@ -1123,7 +1123,7 @@ main{
     
     left: 50%;
     transform: translateX(-50%);
-    top: 358px;
+    top: 368px;
     z-index: 2;
     padding: 10px;
 
