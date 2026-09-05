@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKKT-SHIA-KAMETI - Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="page-loader" class="loader-overlay">
+    <div class="loader-content">
+        <!-- Logo Container -->
+        <div class="water-loader">
+            <!-- 1. Picha ya Chini (Kivuli/Inasubiri - Dim) -->
+            <img src="logo.png" alt="Logo" class="logo-base">
+
+            <!-- 2. Picha ya Juu (Inayojaa Maji) -->
+            <div class="water-mask">
+                <img src="logo.png" alt="Logo" class="logo-fill">
+            </div>
+        </div>
+
+        <!-- Bouncing Text -->
+        <div class="loader-text">
+            <span>K</span><span>K</span><span>K</span><span>T</span>
+            <span class="space">&nbsp;</span>
+            <span>S</span><span>H</span><span>A</span>
+            <span class="space">&nbsp;</span>
+            <span>K</span><span>A</span><span>M</span><span>E</span><span>T</span><span>I</span>
+        </div>
+    </div>
+</div>
+
+   <header>
+    <div class="notf">
+        <h6 data-i18n="top_welcome">WELCOME & JOIN US</h6>
+    </div>
+    
+    <div class="ulalo">
+        <div class="logo">
+            <img src="logo.png" alt="logo">
+            <h6>KKKT SHIA KAMETI</h6>
+        </div>
+        
+        <div class="search-conteiner">
+            <input type="search" placeholder="type here" id="search-input">
+            <button data-i18n="btn_search">search</button>
+        </div>
+        
+        <!-- Desktop Language Select -->
+        <div class="luga luga-desktop">
+            <span>lang:</span>
+            <select class="lang-selector">
+                <option value="en">Eng</option>
+                <option value="sw">Sw</option>
+            </select>
+        </div>
+
+        <button class="hamburger" id="hamburger">
+            &#9776;
+        </button>
+
+        <div class="page-btn">
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                    <li><a href="event.html" data-i18n="nav_events">Events</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">About us</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Contact us</a></li>
+                </ul>
+
+                <!-- Mobile Language Select -->
+                <div class="luga luga-mobile">
+                    <span>lang:</span>
+                    <select class="lang-selector">
+                        <option value="en">Eng</option>
+                        <option value="sw">Sw</option>
+                    </select>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+    
+    <main>
+    <section class="hero">
+        <div>
+            <p data-i18n="evt_hero_tag">WHAT'S UP NEXT</p>
+            <h3 data-i18n="evt_hero_title">Welcome <br> Partner With Us</h3>
+            <p data-i18n="evt_hero_desc">Welcome to the official website of ELCT Shia Sub-Parish. Join us in worship, teachings, and taking care of the Lord's work.</p>
+            <div class="hero-buttons">
+                <a href="#ibada" class="cta-btn-primary" data-i18n="btn_worship_schedule">Worship Schedule</a>
+                <a href="#michango" class="cta-btn-secondary" data-i18n="btn_give_offering">Give Offering</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="live-card">
+        <div class="flot-card">
+            <div>
+                <img src="live.jpg" alt="live image">
+            </div>
+            
+            <div>
+                <h3 data-i18n="live_title">Join the Sunday live stream</h3>
+                <p data-i18n="live_time">Every Sunday at 06:30AM - 09:30AM</p>
+                <button data-i18n="btn_join">Join Now</button>
+                <button data-i18n="btn_videos">Videos</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="ibada" class="services-container">
+        <!-- Left Side (Title & Description) -->
+        <div class="services-left">
+            <p class="sub-title" data-i18n="sch_subtitle">OUR SCHEDULES</p>
+            <h3 data-i18n="sch_title">Worship Schedules</h3>
+            <p class="description" data-i18n="sch_desc">
+                Join us throughout the week for worship, studying the Word of God, and praying together.
+            </p>
+            <a href="#" class="btn-learn-more" data-i18n="btn_learn_more">Learn More</a>
+        </div>
+
+        <!-- Right Side (6 Worship Schedule Boxes) -->
+        <div class="services-right">
+            <!-- Service 1 -->
+            <div class="service-box">
+                <div class="service-icon"><i class="fas fa-cross"></i></div>
+                <h4 data-i18n="sch_1_title">Main Sunday Service</h4>
+                <p class="time"><i class="fas fa-clock"></i> <span data-i18n="sch_1_time">6:30 AM - 9:30 AM</span></p>
+                <p data-i18n="sch_1_desc">Praise, worship, and the Word of God.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-box">
+                <div class="service-icon"><i class="fas fa-book-open"></i></div>
+                <h4 data-i18n="sch_2_title">MORNING GLORY</h4>
+                <p class="time"><i class="fas fa-clock"></i> <span data-i18n="sch_2_time">Every Monday: 6:00 AM</span></p>
+                <p data-i18n="sch_2_desc">In-depth Bible study and Prayers.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-box">
+                <div class="service-icon"><i class="fas fa-cross"></i></div>
+                <h4 data-i18n="sch_3_title">EVENING GLORY</h4>
+                <p class="time"><i class="fas fa-clock"></i> <span data-i18n="sch_3_time">Every Tuesday: 4:00 PM</span></p>
+                <p data-i18n="sch_3_desc">In-depth Bible study and Prayers.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-box">
+                <div class="service-icon"><i class="fas fa-book-open"></i></div>
+                <h4 data-i18n="sch_4_title">EVENING GLORY</h4>
+                <p class="time"><i class="fas fa-clock"></i> <span data-i18n="sch_4_time">Every Wednesday: 4:00 PM</span></p>
+                <p data-i18n="sch_4_desc">In-depth Bible study and Prayers.</p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-box">
+                <div class="service-icon"><i class="fas fa-cross"></i></div>
+                <h4 data-i18n="sch_5_title">EVENING GLORY</h4>
+                <p class="time"><i class="fas fa-clock"></i> <span data-i18n="sch_5_time">Every Thursday: 4:00 PM</span></p>
+                <p data-i18n="sch_5_desc">In-depth Bible study and Prayers.</p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-box">
+                <div class="service-icon"><i class="fas fa-book-open"></i></div>
+                <h4 data-i18n="sch_6_title">MORNING GLORY</h4>
+                <p class="time"><i class="fas fa-clock"></i> <span data-i18n="sch_6_time">Every Friday: 6:00 AM</span></p>
+                <p data-i18n="sch_6_desc">In-depth Bible study and Prayers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="events-section">
+        <div class="section-title">
+            <h2 data-i18n="evt_section_title">Upcoming Events</h2>
+            <p data-i18n="evt_section_subtitle">We cordially invite you to join us in these important events</p>
+        </div>
+        <div class="events-container">
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">25</span>
+                    <span class="month" data-i18n="evt_1_month">DECEMBER</span>
+                </div>
+                <div class="event-details">
+                    <h3 data-i18n="evt_1_title">Family Seminar</h3>
+                    <p><i class="fa fa-map-marker-alt"></i> <span data-i18n="evt_1_loc">Kameti lutheran Churc</span></p>
+                    <p data-i18n="evt_1_desc">A special seminar aimed at building spiritually and socially strong families.</p>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-date">
+                    <span class="day">15</span>
+                    <span class="month" data-i18n="evt_2_month">NOVEMBER</span>
+                </div>
+                <div class="event-details">
+                    <h3 data-i18n="evt_2_title">Fundraiser for Musical Instruments</h3>
+                    <p><i class="fa fa-map-marker-alt"></i> <span data-i18n="evt_2_loc">Kameti lutheran Church</span></p>
+                    <p data-i18n="evt_2_desc">Contributing towards phase two of purchasing musical instruments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <div class="section-title">
+            <h2 data-i18n="news_section_title">News & Announcements</h2>
+            <p data-i18n="news_section_subtitle">Read articles, teachings, and the latest updates</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-img">
+                    <img src="report.jpg" alt="Service image">
+                </div>
+                <div class="news-info">
+                    <span class="category" data-i18n="news_1_cat">Announcements</span>
+                    <h3 data-i18n="news_1_title">Social Service Report for This Month</h3>
+                    <p data-i18n="news_1_desc">Our Church successfully visited and assisted two orphanages...</p>
+                    <a href="#" class="read-more"><span data-i18n="btn_read_more">Read more</span> <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img">
+                    <img src="tech.jpg" alt="Teachings image">
+                </div>
+                <div class="news-info">
+                    <span class="category" data-i18n="news_2_cat">Articles</span>
+                    <h3 data-i18n="news_2_title">The Power of Unity in Ministry</h3>
+                    <p data-i18n="news_2_desc">An article explaining how our church can grow through unity...</p>
+                    <a href="#" class="read-more"><span data-i18n="btn_read_more">Read more</span> <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-container">
+        <!-- Left Side (Title & Description) -->
+        <div class="services-left">
+            <p class="sub-title" data-i18n="lead_subtitle">OUR LEADERSHIP</p>
+            <h3 data-i18n="lead_title">Kameti Leaders</h3>
+            <p class="description" data-i18n="lead_desc">
+                Get to know the leaders who oversee our ministry and lead the church toward achieving its vision and various ministries.
+            </p>
+            <a href="#" class="btn-learn-more" data-i18n="btn_read_more">Read More</a>
+        </div>
+
+        <!-- Right Side (Leaders Grid) -->
+        <div class="services-right leaders-grid-custom">
+            <!-- Leader 1 -->
+            <div class="service-box leader-card-box">
+                <div class="leader-image-wrapper">
+                    <img src="shao.jpg" alt="Rev. GODLISTEN SHAO" class="leader-img">
+                </div>
+                <h4>Rev. GODLISTEN SHAO</h4>
+                <p class="role-text" data-i18n="leader_1_role">Parish Pastor</p>
+            </div>
+
+            <!-- Leader 2 -->
+            <div class="service-box leader-card-box">
+                <div class="leader-image-wrapper">
+                    <img src="mawi.jpg" alt="Rev. MAWI" class="leader-img">
+                </div>
+                <h4>Rev. MAWI</h4>
+                <p class="role-text" data-i18n="leader_2_role">Associate Pastor</p>
+            </div>
+
+            <!-- Leader 3 -->
+            <div class="service-box leader-card-box">
+                <div class="leader-image-wrapper">
+                    <img src="olotu.png" alt="Evg. GOODLUCK OLOTU" class="leader-img">
+                </div>
+                <h4>Evg. GOODLUCK OLOTU</h4>
+                <p class="role-text" data-i18n="leader_3_role">Evangelist & Local Elder</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="section-title">
+            <h2 data-i18n="test_title">Testimonies & Gratitude</h2>
+            <p data-i18n="test_subtitle">What God is doing through our community</p>
+        </div>
+        <div class="testimonial-carousel">
+            <div class="testimonial-item">
+                <p class="quote" data-i18n="test_1_quote">"Since I joined this Church, I have grown spiritually and found a true family that cares and prays with me during times of trouble and joy."</p>
+                <h4><span data-i18n="test_member_label">- Member</span> [BARAKA MSHANA]</h4>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <div>
+            <h6>CHURCH 2026@</h6>
+        </div>
+        
+        <div class="footer-chn">
+            <div>
+                <p data-i18n="ft_quick_links">Quick links</p>
+                <ul>
+                    <li><a href="#" data-i18n="nav_home">home</a></li>
+                    <li><a href="#" data-i18n="ft_products">products</a></li>
+                    <li><a href="#" data-i18n="nav_about">about us</a></li>
+                    <li><a href="#" data-i18n="nav_contact">contact us</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <p data-i18n="ft_donate">Donate</p>
+                <button>M-pesa</button>
+                <button>Tigo pesa</button>
+                <button>Airtel money</button>
+                <button>Halopesa</button>
+            </div>
+            
+            <div>
+                <p data-i18n="ft_social">Social links</p><hr>
+                <ul>
+                    <li><a href="#">Whatsapp</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">facebook</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1290 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+        
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+/* Container ya Screen Nzima Yenye Giza */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.644);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.loader-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+/* --- OPERA MINI STYLE EXACT WATER FILL --- */
+.water-loader {
+    position: relative;
+    width: 140px;  /* Weka saizi ya logo yako hapa */
+    height: 140px; /* Weka saizi ya logo yako hapa */
+}
+
+/* Picha ya Chini: Inabaki ikiwa imefifia (Transparent/Dark) */
+.logo-base {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.15;
+    filter: brightness(0.3);
+}
+
+/* Mask inayofunika maji yanayopanda */
+.water-mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Inaanza 0% (tupu) */
+    overflow: hidden;
+    transition: height 0.1s linear;
+}
+
+/* Maji yanapopanda juu na kushuka */
+.loader-overlay.active .water-mask {
+    animation: operaFill 2.5s infinite ease-in-out;
+}
+
+/* Picha ya Juu: Lazima iwe na saizi sawa kabisa na Container ili isibadilike umbo */
+.logo-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 140px;  /* Lazima ilingane na .water-loader */
+    height: 140px; /* Lazima ilingane na .water-loader */
+    object-fit: contain;
+    /* Effect ya kuifanya picha ing'ae kama maji ya bluu ikija */
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.8)); 
+}
+
+/* Keyframe inayofanya mask ipande kutoka chini kwenda juu */
+@keyframes operaFill {
+    0% {
+        height: 0%;
+    }
+    50% {
+        height: 100%;
+    }
+    100% {
+        height: 0%;
+    }
+}
+
+/* --- BOUNCING TEXT ANIMATION --- */
+.loader-text {
+    display: flex;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.loader-text span {
+    display: inline-block;
+}
+
+.loader-overlay.active .loader-text span {
+    animation: bounceLetter 0.5s ease infinite alternate;
+    animation-delay: calc(1s + (var(--i) * 0.05s));
+}
+
+@keyframes bounceLetter {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+        color: #eb9808;
+        text-shadow: 0 0 12px rgba(248, 110, 19, 0.9);
+    }
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.445);
+}
+
+.notf{
+    background-color: #2f375dcc;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.ulalo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 5px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ulalo img{
+    width: 70px;
+    height: auto;
+}
+
+.hamburger {
+    display: none; /* Ficha hamburger */
+}
+
+.luga-mobile {
+    display: none; /* Ficha lugha ya ndani ya nav */
+}
+
+
+.page-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul{
+    list-style: none;
+    padding: 0;
+    align-items: center;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+
+.search-conteiner{
+    display: flex;
+    align-items: center;
+    background-color: #f1f3f5;
+    border-radius: 30px;
+    padding: 4px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+    border: 1px solid #ced4da;
+    max-width: 300px;
+}
+
+.search-conteiner input[type="search"]{
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 100%;
+    color: #495057;
+}
+
+.search-conteiner button{
+    background-color: #0057b3a8;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+main{
+    color: black;
+    flex : 1;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 340px; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("HERO1.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    padding: 40px; 
+    box-sizing: border-box;
+}
+
+.hero > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 3px;               
+    max-width: 600px;       
+}
+
+.hero p {
+    font-size: 15px;
+    margin: 0;
+}
+
+.hero h3 {
+    font-size: 40px;
+    margin: 0;
+}
+
+
+.live-card {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    border-radius: 15px;
+    
+    /* Weka katikati ki-uawa (Horizontal Centering) */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Hapa unadhibiti tu nafasi ya juu (Top control) */
+    top: 58%; 
+    
+    z-index: 2;
+    padding: 6px;
+}
+
+
+.live-card img{
+    width: 90px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.flot-card{
+    display: flex;
+    color: black;
+}
+
+.flot-card h3{
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.flot-card p{
+    font-size: 13px;
+    margin: 5px;
+    margin-left: 5px;
+}
+
+.flot-card button{
+    display: inline-block;
+    background: #0057b3a8;
+    color: white;
+    margin-left: 8px;
+    padding: 4px 7px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;    
+}
+.hero-buttons{
+    margin-top: 30px;
+}
+.hero button{
+    display: inline-block;
+    background: #0057b3a8;
+    color: white;
+    font-size: 15px;
+    padding: 4px 7px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;    
+}
+
+.scrolled {
+    background-color: #f9f9f9;
+    padding: 2px;
+    border: 1px solid #ddd;
+    margin-top: 2px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 50px 5%;
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.services-left {
+    flex: 1;
+}
+
+.services-left h3 {
+    font-size: 35px;
+    color: #1a1a1a;
+    margin: 5px 0 10px 0;
+}
+
+.sub-title {
+    color: #888;
+    letter-spacing: 2px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.description {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-learn-more {
+    display: inline-block;
+    background: #0057b3a8;
+    color: black;
+    padding: 7px 18px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.services-right {
+    flex: 1.8;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 15px;
+}
+
+.service-box h4 {
+    margin: 8px 0 4px 0;
+    color: #222;
+    font-size: 18px;
+}
+
+.service-box p {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+
+.service-icon i {
+    font-size: 1.2rem;
+    color: #222;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #fff;
+    display: inline-block;
+}
+/* =========================================
+   ADDITIONAL ABOUT US STYLES (MODERN UI)
+   ========================================= */
+
+/* 1. Statistics Section */
+/* Impact Statistics Section */
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Stat Card Style */
+.stat-card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+/* Hover Effect */
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+.stat-card i {
+    font-size: 2.5rem;
+    color: #0056b3; /* Au badilisha rangi ya muonekano wa kanisa lako */
+    margin-bottom: 15px;
+}
+
+/* Numbers (500+, 12+, etc.) */
+.stat-card h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 8px;
+}
+
+/* Description Text */
+.stat-card p {
+    font-size: 0.95rem;
+    color: #666666;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+/* 2. Leadership Team Section */
+.leadership-section {
+    padding: 50px 5%;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.team-card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 87, 179, 0.12);
+    border-color: rgba(0, 87, 179, 0.2);
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 18px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 87, 179, 0.18);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover img {
+    transform: scale(1.05);
+}
+
+.team-card h4 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 6px;
+}
+
+.team-card .title-role {
+    color: #0057b3;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.team-card p {
+    font-size: 13.5px;
+    color: #718096;
+    line-height: 1.6;
+}
+
+/* 3. Ministries Section */
+.ministries-section {
+    padding: 50px 5%;
+    background-color: transparent;
+    margin-bottom: 40px;
+}
+
+.ministry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.ministry-box {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 14px;
+    border-left: 5px solid #0057b3;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.ministry-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    background: #fdfdfd;
+}
+
+.ministry-box i {
+    font-size: 2rem;
+    color: #0057b3;
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+.ministry-box h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.ministry-box p {
+    font-size: 13.5px;
+    color: #4a5568;
+    line-height: 1.6;
+}
+/* Styling kwa ajili ya Kadi za Viongozi */
+.leader-card-box {
+    text-align: center;
+    padding: 25px 15px;
+}
+
+.leader-image-wrapper {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #eee;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leader-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.role-text {
+    font-weight: 600;
+    color: #444;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.role-icon {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+
+.cta-btn-primary {
+    background: #0057b3a8;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.cta-btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.cta-btn-secondary:hover {
+    background-color: white;
+    color: black;
+}
+
+.events-section {
+    padding: 60px 10%;
+    background-color: #fff;
+}
+
+.events-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-item {
+    display: flex;
+    background: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.event-date {
+    background: #2f375dcc;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    text-align: center;
+}
+
+.event-date .day {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.event-date .month {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.event-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.event-details h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.event-details p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.event-details i {
+    color: #fa7d2b;
+    margin-right: 5px;
+}
+
+
+.news-section {
+    padding: 60px 10%;
+    background-color: #f9f9f9;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.news-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-info {
+    padding: 20px;
+}
+
+.news-info .category {
+    font-size: 11px;
+    text-transform: uppercase;
+    background: #ff994522;
+    color: #fa7d2b;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.news-info h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #222;
+}
+
+.news-info p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.news-info .read-more {
+    color: #fa7d2b;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+.testimonials-section {
+    padding: 60px 10%;
+    background-color: #2f375dcc;
+    color: white;
+    text-align: center;
+}
+
+.testimonials-section .section-title h2 {
+    color: white;
+}
+
+.testimonials-section .section-title p {
+    color: #ddd;
+}
+
+.testimonial-carousel {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.testimonial-item .quote {
+    font-size: 16px;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.testimonial-item h4 {
+    font-size: 14px;
+    color: #ff9945;
+}
+
+/* ==========================================================================
+   CSS YA UKURASA WA WASILIANA NASI (CONTACT US)
+   ========================================================================== */
+
+.contact-section {
+    padding: 60px 10%;
+    background-color: #f9f9f9;
+}
+
+.contact-container {
+    display: flex;
+    gap: 40px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+
+.contact-info-box {
+    flex: 1;
+    background-color: #0057b3a8;
+    color: black;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.contact-info-box h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.contact-desc {
+    font-size: 14px;
+    color: #0c0c0c;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.info-links {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.info-item i {
+    font-size: 20px;
+    color: #080808;
+    background: rgba(255, 153, 69, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.info-item h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 13px;
+    color: black;
+    line-height: 1.4;
+}
+
+
+.contact-form-box {
+    flex: 1.5;
+}
+
+.contact-form-box h2 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #fa7d2b;
+    box-shadow: 0 0 5px rgba(250, 125, 43, 0.2);
+}
+
+.btn-send-message {
+    background: #0057b3a8;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.btn-send-message:hover {
+    opacity: 0.9;
+}
+
+
+.map-section {
+    padding: 0 10% 60px 10%;
+    background-color: #f9f9f9;
+}
+
+.map-container {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+ footer {
+    background-color: #3d4b69;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+
+.footer-chn{
+    display: none;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN FOR SMALL SCREENS (768px)
+   ========================================== */
+@media (max-width: 768px) {
+    
+   
+    .notf {
+        font-size: 14px;
+        padding: 3px;
+    }
+
+    .ulalo {
+        gap: 10px;
+        padding: 5px 10px;
+        position: relative;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .ulalo img {
+        width: 60px;
+    }
+    
+    .luga{
+        font-size: 14px;
+    }
+
+    .luga-desktop {
+        display: none;
+    }
+
+    
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    
+
+    #nav-menu {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        right: 0;  
+        width: 150px; 
+        height: auto; 
+        
+        background-color: #ffffff;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-end; 
+        text-align: left;
+        border-radius: 0 0 0 10px; 
+        box-shadow: -4px 6px 15px rgba(0,0,0,0.15); 
+        z-index: 1000;
+    }
+
+   
+    #nav-menu.active {
+        display: flex;
+    }
+
+    #nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    #nav-menu ul li {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    #nav-menu ul li a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+    }
+
+    /* Lugha ya mobile ndani ya nav */
+    .luga-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Inasukuma lugha kulia */
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+        padding-top: 12px;
+        border-top: 1px solid #eee;
+    }
+
+
+    .search-conteiner {
+        max-width: 250px;
+    }
+
+    .search-conteiner input[type="search"] {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .search-conteiner button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    /* 3. Hero Section Padding & Sizes */
+    .hero {
+        padding: 40px 20px;
+    }
+
+
+    .hero h3 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+    
+    .hero-buttons{
+    margin-top: 5px;
+}
+
+    /* Floating Live Card Adjustment */
+.live-card {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    border-radius: 15px;
+    
+    left: 50%;
+    transform: translateX(-50%);
+    top: 355px;
+    z-index: 2;
+    padding: 10px;
+
+    width: 300px;      
+    max-width: 90%;     
+    height: 90px;  
+}
+
+
+
+.live-card img{
+    width: 60px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.flot-card{
+    display: flex;
+    color: black;
+}
+
+.flot-card button{
+    font-size: 10px;
+    color: white;
+}
+
+    .flot-card h3 {
+        font-size: 16px;
+    }
+
+    .flot-card p {
+        font-size: 12px;
+    }
+
+    /* 4. Services Section Breakdown */
+    .services-container {
+        flex-direction: column;
+        margin-top: 38px;
+        padding: 25px 4%;
+        gap: 20px;
+    }
+
+    .services-left h3 {
+        font-size: 24px;
+    }
+
+    .services-right {
+        grid-template-columns: repeat(2, 1fr); /* Kutoka ikoloni 3 kwenda 2 */
+        gap: 15px 10px;
+    }
+
+    .service-box h4 {
+        font-size: 15px;
+    }
+
+    .service-box p {
+        font-size: 13px;
+    }
+    
+    .cta-btn-primary {
+    padding: 3px 8px;
+    font-size: 15px;
+}
+
+.cta-btn-secondary {
+    padding: 3px 8px;
+    font-size: 15px;
+}
+
+.about-stats {
+        grid-template-columns: repeat(2, 1fr); /* Inaonyesha mbili mbili kwenye simu */
+        gap: 15px;
+        padding: 20px 15px;
+    }
+
+    .stat-card {
+        padding: 20px 10px;
+    }
+
+    .stat-card i {
+        font-size: 2rem;
+    }
+
+    .stat-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .stat-card p {
+        font-size: 0.85rem;
+    }
+
+    /* 1. Kupunguza nafasi za pambizoni za section nzima */
+    .contact-section {
+        padding: 30px 5%;
+    }
+
+    /* 2. Kubadilisha container kuwa ya kushuka chini (column) badala ya pembe kwa pembe */
+    .contact-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 25px;
+    }
+
+    /* 3. Kupunguza padding na kurekebisha box la taarifa */
+    .contact-info-box {
+        padding: 25px 20px;
+    }
+
+    .contact-info-box h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .contact-desc {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    /* 4. Kupunguza nafasi kwenye item za mawasiliano */
+    .info-links {
+        gap: 18px;
+    }
+
+    .info-item i {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .info-item h3 {
+        font-size: 15px;
+    }
+
+    .info-item p {
+        font-size: 12px;
+    }
+
+    /* 5. Kurekebisha fomu na maandishi yake */
+    .contact-form-box h2 {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    /* 6. Kufanya button ichukue upana wote kwenye simu ili iwe rahisi kubonyeza */
+    .btn-send-message {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 14px;
+    }
+   .map-section {
+        padding: 0 5% 40px 5%;
+    }
+    
+    .map-container {
+        height: 250px;
+    } 
+    
+}
